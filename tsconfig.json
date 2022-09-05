@@ -1,0 +1,12 @@
+{
+  "extends": "@quasar/app-vite/tsconfig-preset",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "element-plus/global"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

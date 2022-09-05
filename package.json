@@ -1,0 +1,59 @@
+{
+  "name": "gis-electron",
+  "version": "0.0.1",
+  "description": "A Quasar Project",
+  "productName": "GIS App",
+  "author": "Fengsx <fengsx@yeah.net>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "spa dev": "quasar dev",
+    "spa build": "quasar build",
+    "rebuild": "./node_modules/.bin/electron-rebuild",
+    "electrion dev": " vue-devtools & quasar dev -m electron",
+    "electrion start": "quasar dev -m electron",
+    "electrion build": "quasar build -m electron"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
+    "element-plus": "^2.2.15",
+    "pinia": "^2.0.11",
+    "quasar": "^2.6.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.0.0",
+    "@types/node": "^12.20.21",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "@vue/devtools": "^6.2.1",
+    "autoprefixer": "^10.4.2",
+    "electron": "^20.1.0",
+    "electron-builder": "^22.4.0",
+    "electron-packager": "^15.2.0",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.10.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.22.4",
+    "workbox-build": "^6.5.0",
+    "workbox-cacheable-response": "^6.5.0",
+    "workbox-core": "^6.5.0",
+    "workbox-expiration": "^6.5.0",
+    "workbox-precaching": "^6.5.0",
+    "workbox-routing": "^6.5.0",
+    "workbox-strategies": "^6.5.0"
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
