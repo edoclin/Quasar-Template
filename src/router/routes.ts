@@ -1,18 +1,22 @@
 import { RouteRecordRaw } from 'vue-router'
 
+// 递归读取pages下的vue文件注册到路由，无需手动添加router
+// '../pages/**/**/**/**.vue' : 支持读取到pages下第四级目录
+// If 有更高的嵌套需求: eg五级：'../pages/**/**/**/**/**.vue'
 const pageModules = import.meta.glob('../pages/**/**/**/**.vue')
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
         component: pageModules['../pages/IndexPage.vue'],
-        children: []
+        children: [] as RouteRecordRaw[]
     }
 ]
+
 const pages = []
 for (let module in pageModules) {
     pages.push(module.substring(8))
 }
-const addChildren = (children: any, path: string, routes: any, componentPath: string) => {
+const addChildren = (children: string[], path: string, routes: any, componentPath: string) => {
     if (children.length > 1) {
         let copy = [...children]
         componentPath = path === '' ? copy[0] : `${path}/${copy[0]}`
@@ -22,7 +26,7 @@ const addChildren = (children: any, path: string, routes: any, componentPath: st
         if (child === undefined) {
             child = {
                 path: path,
-                children: []
+                children: [] as RouteRecordRaw[]
             }
             routes.push(child)
         }
@@ -37,6 +41,8 @@ const addChildren = (children: any, path: string, routes: any, componentPath: st
 pages.forEach(page => {
     let split = page.split('/')
     split.splice(0, 1)
+    console.log(routes[0].children);
+
     addChildren(split, '', routes[0].children, '')
 })
 routes.push({
