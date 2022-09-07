@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { LocalStorage } from 'quasar'
 
 
 interface UserInfo {
@@ -8,7 +9,7 @@ interface UserInfo {
 
 export const useUserStore = defineStore('user_store', {
     state: () => ({
-        token: localStorage.getItem('token') || '',
+        token: LocalStorage.getItem('token') || '',
         userinfo: {} as UserInfo
     }),
     getters: {

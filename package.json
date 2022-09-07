@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
+    "clean": "quasar clean",
     "spa dev": "quasar dev",
     "spa build": "quasar build",
     "rebuild": "./node_modules/.bin/electron-rebuild",
@@ -15,13 +16,13 @@
     "electrion build": "quasar build -m electron"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
-    "axios": "^0.21.1",
+    "@quasar/extras": "^1.15.2",
+    "axios": "^0.27.2",
     "element-plus": "^2.2.15",
-    "pinia": "^2.0.11",
+    "pinia": "^2.0.22",
     "quasar": "^2.6.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0"
+    "vue": "^3.2.38",
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.0.0",

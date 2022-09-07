@@ -41,8 +41,6 @@ const addChildren = (children: string[], path: string, routes: any, componentPat
 pages.forEach(page => {
     let split = page.split('/')
     split.splice(0, 1)
-    console.log(routes[0].children);
-
     addChildren(split, '', routes[0].children, '')
 })
 routes.push({

@@ -12,6 +12,11 @@ const { configure } = require('quasar/wrappers')
 
 module.exports = configure(function (/* ctx */) {
     return {
+        htmlVariables: {
+            title: 'GIS APP',
+            desc: "DESC",
+            VueDevToolsUrl: "http://localhost:8098"
+        },
         server: {
 
         },
