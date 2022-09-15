@@ -1,0 +1,8 @@
+version: '3'
+services:
+  ssr-prod:
+    build:
+      context: .
+    image: ssr-prod:0.0.1
+    ports:
+      - "10000:3000"

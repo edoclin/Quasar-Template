@@ -1,8 +1,7 @@
 import { boot } from 'quasar/wrappers'
 import axios, { AxiosInstance } from 'axios'
-import { useUserStore } from 'src/stores/user_store';
+import { useUserStore } from 'src/stores/user_store'
 
-const userStore = useUserStore()
 declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
         $axios: AxiosInstance;
@@ -18,19 +17,6 @@ const api = axios.create({
     baseURL: 'https://wechat.wuhandonghumap.com/zigui'
 })
 
-// 添加请求拦截器
-api.interceptors.request.use(config => {
-    config.headers['token'] = userStore.token
-
-    // 在发送请求之前做些什么
-
-    console.log(`headers['token']=${config.headers['token']}`);
-
-    return config
-}, error => {
-    // 对请求错误做些什么
-    return Promise.reject(error)
-})
 
 // 添加响应拦截器
 api.interceptors.response.use(response => {
@@ -91,7 +77,19 @@ export const DELETE = (url: string, params: {}) => {
 }
 export default boot(({ app }) => {
     // for use inside Vue files (Options API) through this.$axios and this.$api
+    const userStore = useUserStore()
+    // 添加请求拦截器
+    api.interceptors.request.use(config => {
+        config.headers['token'] = userStore.token
 
+        // todo 在发送请求之前做些什么
+        console.log(`headers['token']=${config.headers['token']}`);
+
+        return config
+    }, error => {
+        // 对请求错误做些什么
+        return Promise.reject(error)
+    })
     app.config.globalProperties.$axios = axios
     // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
     //       so you won't necessarily have to import axios in each vue file
