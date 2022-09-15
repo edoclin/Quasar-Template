@@ -1,3 +1,4 @@
+import { template } from 'lodash'
 import { RouteRecordRaw } from 'vue-router'
 
 // 递归读取pages下的vue文件注册到路由，无需手动添加router
@@ -32,8 +33,14 @@ const addChildren = (children: string[], path: string, routes: any, componentPat
         }
         addChildren(copy, path, child.children, componentPath)
     } else {
+        let tmpPath = `${children[0].split('.')[0]}`
+
+        if (tmpPath.startsWith('_')) {
+            tmpPath = tmpPath.substring(1)
+            tmpPath = `${tmpPath}/:${tmpPath.toLowerCase()}`
+        }
         routes.push({
-            path: `${children[0].split('.')[0]}`,
+            path: tmpPath,
             component: pageModules[`../pages/${componentPath === '' ? '' : `${componentPath}/`}${children[0]}`],
         })
     }
