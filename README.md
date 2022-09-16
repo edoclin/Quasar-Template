@@ -34,12 +34,23 @@ quasar new store store_name
     [配置代理](https://www.electron.build/configuration/configuration), 见[quasar.config.js['electron'].builder.electronDownload配置项](./quasar.config.js)
 
 2. `⨯ Get "https://npm.taobao.org/mirrors/electron/xxx/electron-xxx.zip": proxyconnect tcp: dial tcp :0: connect: can't assign requested address`
-    配置代理后仍报错，手动点击链接下载到本地，在`electronDownload`中配置：
+    配置代理后仍报错，手动点击链接下载到本地，在`quasar.config.js`中配置：
     ```json
-    electronDownload: {
-        cache: 'the directory of your downloaded electron.zip',
-        mirror: 'https://npm.taobao.org/mirrors/electron/'
+    {
+        ...
+        electron: {
+            ...
+            builder: {
+                electronDownload: {
+                    ...
+                    cache: 'the directory of your downloaded electron.zip',
+                    mirror: 'https://npm.taobao.org/mirrors/electron/'
+                    }
+            }
+        }
+
     }
+
     ```
 
 3. [mac 升级之后 electron 打包报错 Exit code: ENOENT. spawn /usr/bin/python ENOENT](https://www.jianshu.com/p/496d016ddefb)
