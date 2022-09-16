@@ -16,7 +16,8 @@
     "rebuild": "./node_modules/.bin/electron-rebuild",
     "electrion dev": "quasar dev -m electron --devtools",
     "electrion start": "quasar dev -m electron",
-    "electrion build": "quasar build -m electron"
+    "electrion build": "quasar build -m electron",
+    "electrion publish": "quasar build --mode electron --publish always"
   },
   "dependencies": {
     "@quasar/extras": "^1.15.2",
