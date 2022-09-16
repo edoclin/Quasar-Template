@@ -37,7 +37,7 @@ quasar new store store_name
     配置代理后仍报错，手动点击链接下载到本地，在`electronDownload`中配置：
     ```json
     electronDownload: {
-        cache: '您下载到本地的目录',
+        cache: 'the directory of your downloaded electron.zip',
         mirror: 'https://npm.taobao.org/mirrors/electron/'
     }
     ```

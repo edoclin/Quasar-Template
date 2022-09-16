@@ -1,8 +1,8 @@
 version: '3'
 services:
-  ssr-prod:
+  quasar-template-ssr:
     build:
       context: .
-    image: ssr-prod:0.0.1
+    image: quasar-template-ssr:0.0.1
     ports:
       - "10000:3000"
