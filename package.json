@@ -1,8 +1,8 @@
 {
-  "name": "gis-electron",
+  "name": "quasar-template",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "GIS App",
+  "description": "A Template Project Based on Quasar with Vite",
+  "productName": "Quasar Template",
   "author": "Fengsx <fengsx@yeah.net>",
   "private": true,
   "scripts": {
