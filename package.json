@@ -14,7 +14,7 @@
     "ssr build": "quasar build -m ssr && rm -rf ./docker/ssr/dist && cp -a ./dist/ssr ./docker/ssr/dist",
     "docker ssr": "yarn run 'ssr build' && cd ./docker/ssr && docker-compose build && docker-compose up",
     "rebuild": "./node_modules/.bin/electron-rebuild",
-    "electrion dev": " vue-devtools & quasar dev -m electron",
+    "electrion dev": "quasar dev -m electron --devtools",
     "electrion start": "quasar dev -m electron",
     "electrion build": "quasar build -m electron"
   },

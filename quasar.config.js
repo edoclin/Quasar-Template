@@ -13,7 +13,7 @@ const { configure } = require('quasar/wrappers')
 module.exports = configure(function (/* ctx */) {
     return {
         htmlVariables: {
-            title: 'GIS APP',
+            title: 'Quasar Template',
             desc: "DESC",
             VueDevToolsUrl: "http://localhost:8098"
         },
@@ -182,7 +182,7 @@ module.exports = configure(function (/* ctx */) {
 
             inspectPort: 5858,
 
-            bundler: 'packager', // 'packager' or 'builder'
+            bundler: 'builder', // 'packager' or 'builder'
 
             packager: {
                 // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -198,9 +198,14 @@ module.exports = configure(function (/* ctx */) {
             },
 
             builder: {
-                // https://www.electron.build/configuration/configuration
+                // Full list of options: https://www.electron.build/configuration/configuration
 
-                appId: 'gis-electron',
+                appId: 'quasar.template',
+                // see https://www.electron.build/configuration/configuration
+                electronDownload: {
+                    cache: '/Users/edoclin/Downloads',
+                    mirror: 'https://npm.taobao.org/mirrors/electron/'
+                }
             }
         },
 
